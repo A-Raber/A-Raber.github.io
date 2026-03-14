@@ -1,0 +1,566 @@
+    :root {
+      color-scheme: dark;
+      --bg: #020202;
+      --text: #f5f7fb;
+      --muted: rgba(232, 238, 247, 0.72);
+      --soft: rgba(232, 238, 247, 0.52);
+      --panel: rgba(9, 12, 20, 0.72);
+      --panel-strong: rgba(10, 14, 24, 0.86);
+      --panel-border: rgba(255, 255, 255, 0.1);
+      --line: rgba(255, 255, 255, 0.08);
+      --cyan: #61e6ff;
+      --amber: #ffbf47;
+      --rose: #ff6d9f;
+      --shadow: 0 24px 80px rgba(0, 0, 0, 0.42);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    html,
+    body {
+      margin: 0;
+      min-height: 100%;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+    }
+
+    body {
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    textarea,
+    select {
+      font: inherit;
+    }
+
+    #webgl {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      display: block;
+      z-index: 0;
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
+      width: min(1200px, calc(100% - 2rem));
+      margin: 0 auto;
+      padding: 1rem 0 5rem;
+    }
+
+    .shell {
+      width: 100%;
+    }
+
+    .hero {
+      min-height: auto;
+      display: grid;
+      grid-template-columns: minmax(0, 1.5fr) minmax(280px, 0.85fr);
+      gap: 1.5rem;
+      align-items: start;
+      padding: 1rem 0 3rem;
+    }
+
+    .panel {
+      border: 1px solid var(--panel-border);
+      border-radius: 28px;
+      background: linear-gradient(180deg, rgba(16, 20, 32, 0.88), var(--panel));
+      backdrop-filter: blur(16px);
+      box-shadow: var(--shadow);
+    }
+
+    .panelLarge,
+    .sectionPanel,
+    .contactPanel,
+    .quotePanel,
+    .timelineItem,
+    .card,
+    .interestCard,
+    .skillGroup,
+    .heroAside {
+      padding: 1.75rem;
+    }
+
+    .heroCopy {
+      display: grid;
+      gap: 1.4rem;
+      padding: 2.4rem;
+      min-height: 50vh;
+      align-content: end;
+      background:
+        radial-gradient(circle at top right, rgba(97, 230, 255, 0.14), transparent 34%),
+        linear-gradient(180deg, rgba(10, 14, 24, 0.9), rgba(8, 11, 18, 0.78));
+    }
+
+    .heroAside {
+      display: grid;
+      align-content: start;
+      gap: 1.5rem;
+      background:
+        radial-gradient(circle at top left, rgba(255, 191, 71, 0.12), transparent 32%),
+        linear-gradient(180deg, rgba(12, 15, 26, 0.88), rgba(8, 11, 18, 0.76));
+    }
+
+    .eyebrow,
+    .sectionTag,
+    .cardLabel,
+    .metaLine,
+    .accentLine {
+      margin: 0;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 0.76rem;
+    }
+
+    .eyebrow,
+    .sectionTag,
+    .cardLabel {
+      color: var(--cyan);
+    }
+
+    h1,
+    h2,
+    h3,
+    p,
+    ul,
+    blockquote,
+    cite {
+      margin: 0;
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: 600;
+      line-height: 0.98;
+    }
+
+    h1 {
+      font-size: clamp(3.5rem, 8vw, 6.6rem);
+      max-width: 8ch;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+    }
+
+    h3 {
+      font-size: 1.35rem;
+      line-height: 1.15;
+    }
+
+    .lead,
+    .prose p,
+    .card p,
+    .timelineItem p,
+    .timelineItem li,
+    .interestCard p,
+    .contactPanel p,
+    .heroAside p {
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 1rem;
+    }
+
+    .lead {
+      max-width: 60ch;
+      font-size: 1.08rem;
+    }
+
+    .heroActions,
+    .contactLinks {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.85rem;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0.8rem 1.2rem;
+      border-radius: 999px;
+      border: 1px solid var(--panel-border);
+      transition: transform 180ms ease, border-color 180ms ease, background-color 180ms ease;
+    }
+
+    .button:hover {
+      transform: translateY(-1px);
+    }
+
+    .buttonPrimary {
+      background: linear-gradient(135deg, rgba(97, 230, 255, 0.22), rgba(97, 230, 255, 0.08));
+      border-color: rgba(97, 230, 255, 0.35);
+    }
+
+    .buttonSecondary {
+      background: linear-gradient(135deg, rgba(255, 109, 159, 0.18), rgba(255, 109, 159, 0.06));
+      border-color: rgba(255, 109, 159, 0.28);
+    }
+
+    .buttonGhost {
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--soft);
+      cursor: default;
+    }
+
+    .heroMeta,
+    .detailList,
+    .chipList {
+      list-style: none;
+      padding: 0;
+    }
+
+    .heroMeta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .heroMeta li {
+      padding: 0.55rem 0.8rem;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--soft);
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .focusStack {
+      display: grid;
+      gap: 1.25rem;
+    }
+
+    .focusStack h2 {
+      font-size: 1.15rem;
+      margin-bottom: 0.45rem;
+    }
+
+    .sectionGrid {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.5fr);
+      gap: 1.5rem;
+      padding: 0 0 1.5rem;
+    }
+
+    .sectionGridLast {
+      padding-bottom: 0;
+    }
+
+    .sectionIntro {
+      padding: 1rem 0;
+      position: sticky;
+      top: 1.5rem;
+      align-self: start;
+    }
+
+    .sectionIntro h2 {
+      margin-top: 0.5rem;
+      max-width: 10ch;
+    }
+
+    .prose {
+      display: grid;
+      gap: 1rem;
+      background: linear-gradient(180deg, rgba(12, 16, 28, 0.88), var(--panel-strong));
+    }
+
+    .cards,
+    .skillsLayout,
+    .stackedCards {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .threeUp {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .twoUp {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .fourUp {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .skillsLayout {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .interestLayout {
+      display: grid;
+      grid-template-columns: minmax(280px, 0.85fr) minmax(0, 1.55fr);
+      gap: 1rem;
+      width: 100%;
+    }
+
+    .card,
+    .skillGroup,
+    .timelineItem,
+    .interestCard,
+    .contactPanel,
+    .quotePanel {
+      display: grid;
+      gap: 0.9rem;
+      background: linear-gradient(180deg, rgba(13, 16, 28, 0.88), rgba(9, 12, 20, 0.78));
+    }
+
+    .skillGroup {
+      align-content: start;
+      justify-items: start;
+    }
+
+    .interestCard {
+      align-content: start;
+      justify-items: start;
+      width: 100%;
+    }
+
+    .interestCardWide {
+      min-width: 0;
+    }
+
+    .projectCard {
+      min-height: 260px;
+      align-content: start;
+    }
+
+    .textLink {
+      color: var(--amber);
+      width: fit-content;
+    }
+
+    .chipList {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      width: 100%;
+      justify-content: flex-start;
+      align-items: flex-start;
+      align-content: flex-start;
+    }
+
+    .chipList li {
+      flex: 0 0 auto;
+      align-self: flex-start;
+      width: fit-content;
+      padding: 0.65rem 0.8rem;
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.03);
+      color: var(--text);
+      white-space: nowrap;
+    }
+
+    .timelineHeading {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 0.75rem;
+      padding-bottom: 0.9rem;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .timelineHeading p,
+    .metaLine {
+      color: var(--soft);
+    }
+
+    .detailList {
+      display: grid;
+      gap: 0.8rem;
+    }
+
+    .detailList li {
+      padding-left: 1.1rem;
+      position: relative;
+    }
+
+    .detailList li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.7rem;
+      width: 0.38rem;
+      height: 0.38rem;
+      border-radius: 50%;
+      background: var(--cyan);
+    }
+
+    .accentLine {
+      color: var(--amber);
+    }
+
+    .mediaPlaceholder {
+      min-height: 170px;
+      border-radius: 20px;
+      border: 1px dashed rgba(255, 255, 255, 0.16);
+      background:
+        linear-gradient(135deg, rgba(97, 230, 255, 0.08), rgba(255, 191, 71, 0.05)),
+        rgba(255, 255, 255, 0.02);
+      color: var(--soft);
+      display: grid;
+      place-items: center;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-size: 0.75rem;
+    }
+
+    .mediaFrame {
+      overflow: hidden;
+      padding: 0;
+      border-style: solid;
+    }
+
+    .mediaFrame img,
+    .galleryItem img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .photoGallery {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.75rem;
+      width: 100%;
+    }
+
+    .galleryItem {
+      min-height: 140px;
+      overflow: hidden;
+    }
+
+    .galleryItemTall {
+      grid-row: span 2;
+      min-height: 288px;
+    }
+
+    .quotePanel {
+      align-content: center;
+      min-height: 280px;
+      background:
+        radial-gradient(circle at top left, rgba(255, 109, 159, 0.12), transparent 32%),
+        linear-gradient(180deg, rgba(13, 16, 28, 0.9), rgba(9, 12, 20, 0.78));
+    }
+
+    .quotePanel p {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.9rem, 3vw, 3rem);
+      line-height: 1.2;
+    }
+
+    .quotePanel cite {
+      color: var(--soft);
+      font-style: normal;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-size: 0.76rem;
+    }
+
+    .contactPanel {
+      min-height: 220px;
+      align-content: center;
+    }
+
+    @media (max-width: 1100px) {
+      .hero,
+      .sectionGrid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: auto;
+        padding-top: 1rem;
+      }
+
+      .sectionIntro {
+        position: static;
+        padding-bottom: 0;
+      }
+
+      .sectionIntro h2 {
+        max-width: none;
+      }
+
+      .threeUp,
+      .fourUp,
+      .skillsLayout,
+      .interestLayout {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 760px) {
+      .content {
+        width: min(100% - 1rem, 1200px);
+        padding-top: 1rem;
+        padding-bottom: 3rem;
+      }
+
+      .heroCopy,
+      .panelLarge,
+      .sectionPanel,
+      .contactPanel,
+      .quotePanel,
+      .timelineItem,
+      .card,
+      .interestCard,
+      .skillGroup,
+      .heroAside {
+        padding: 1.2rem;
+      }
+
+      h1 {
+        font-size: clamp(2.8rem, 16vw, 4.2rem);
+      }
+
+      .twoUp,
+      .threeUp,
+      .fourUp,
+      .skillsLayout,
+      .interestLayout {
+        grid-template-columns: 1fr;
+      }
+
+      .photoGallery {
+        grid-template-columns: 1fr;
+      }
+
+      .galleryItemTall {
+        grid-row: span 1;
+        min-height: 170px;
+      }
+
+      .heroMeta,
+      .heroActions,
+      .contactLinks {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .button {
+        width: 100%;
+      }
+    }
