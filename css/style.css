@@ -101,7 +101,6 @@
       display: grid;
       gap: 1.4rem;
       padding: 2.4rem;
-      min-height: 50vh;
       align-content: end;
       background:
         radial-gradient(circle at top right, rgba(97, 230, 255, 0.14), transparent 34%),
@@ -164,6 +163,24 @@
     h3 {
       font-size: 1.35rem;
       line-height: 1.15;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .icon-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      color: var(--muted); /* Fallback to your muted text color */
+      transition: color 0.2s ease, transform 0.2s ease;
+    }
+
+    .icon-link svg {
+      width: 100%;
+      height: 100%;
     }
 
     .lead,
